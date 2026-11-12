@@ -58,22 +58,27 @@ Access: `http://localhost:8000`
 
 ## 🌐 Production Deployment
 
-### Deploy to Render + TiDB
+### Deploy to Railway (Gratis, tanpa kartu kredit)
 
-**Full Guide:** See [`DEPLOY_STEPS.md`](./DEPLOY_STEPS.md) for quick 15-minute setup
+**Langkah:**
+1. Kunjungi https://railway.app/
+2. Click **"Start Project"**
+3. Login dengan GitHub
+4. Select repository: `Website-Taksir-Rumah-Bandung`
+5. Railway auto-detect Laravel dan deploy
+6. MySQL database auto-created
+7. Live URL diberikan otomatis
 
-**Quick Summary:**
-1. Create TiDB Serverless cluster (free tier)
-2. Deploy to Render (free tier)
-3. Set environment variables
-4. Done! ✨
+**Keuntungan:**
+- Gratis ($5/bulan credit)
+- MySQL included
+- Deploy otomatis dari GitHub
+- Uptime baik untuk production
+- Tidak perlu kartu kredit
 
-**Detailed Documentation:** [`HOSTING.md`](./HOSTING.md)
-
-### Live URL
-Once deployed on Render:
+**Live URL** akan terlihat seperti:
 ```
-https://taksir-rumah-bandung.onrender.com
+https://website-taksir-rumah-bandung-production.up.railway.app
 ```
 
 ## 📁 Project Structure
@@ -133,9 +138,8 @@ See `.env.example` for all available variables.
 
 ## 📚 Documentation
 
-- **[`DEPLOY_STEPS.md`](./DEPLOY_STEPS.md)** - Quick deployment guide (15 min)
-- **[`HOSTING.md`](./HOSTING.md)** - Full hosting documentation
 - **[Laravel Docs](https://laravel.com/docs)** - Framework documentation
+- **[Railway Docs](https://docs.railway.app/)** - Deployment documentation
 
 ## 🐛 Troubleshooting
 
@@ -144,8 +148,10 @@ See `.env.example` for all available variables.
 - **NPM issues**: `npm install --legacy-peer-deps`
 - **Database error**: `php artisan migrate:fresh --seed`
 
-### Production Issues
-See [`HOSTING.md`](./HOSTING.md) troubleshooting section.
+### Railway Deployment
+- **Check logs**: Railway dashboard → Logs tab
+- **Database issues**: Railway auto-creates MySQL, check env vars
+- **Build failed**: Usually PHP version or missing extension
 
 ## 📊 Database Schema
 
@@ -202,8 +208,8 @@ MIT License - see LICENSE file for details.
 ## 🔗 Links
 
 - Repository: https://github.com/Ranggard/Website-Taksir-Rumah-Bandung
-- Live Demo: https://taksir-rumah-bandung.onrender.com (after deployment)
-- Issue Tracker: https://github.com/Ranggard/Website-Taksir-Rumah-Bandung/issues
+- Live Demo: https://railway.app/ (deploy di sini)
+- Railway Docs: https://docs.railway.app/
 
 ---
 
