@@ -1,58 +1,210 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏠 Website Taksir Rumah Bandung
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web untuk prediksi harga rumah di Bandung menggunakan machine learning dan data analytics.
 
-## About Laravel
+## 📋 Project Info
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Detail | Info |
+|--------|------|
+| **Framework** | Laravel 13 |
+| **PHP Version** | 8.3+ |
+| **Database** | MySQL/TiDB |
+| **Frontend** | Blade + Tailwind CSS |
+| **Status** | Ready for Production |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 🔐 User Authentication & Authorization
+- 📊 House Price Prediction (ML Integration)
+- 🗺️ Interactive Map View
+- 📈 Prediction History
+- 👤 User Profile Management
+- 🎯 Real-time Price Estimation
 
-## Learning Laravel
+## 🚀 Quick Start (Development)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prerequisites
+- PHP 8.3+
+- Composer
+- Node.js & npm
+- MySQL 5.7+
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Setup
 
 ```bash
-composer require laravel/boost --dev
+# Clone repository
+git clone https://github.com/Ranggard/Website-Taksir-Rumah-Bandung.git
+cd Website-Taksir-Rumah-Bandung
 
-php artisan boost:install
+# Install dependencies
+composer install
+npm install
+
+# Setup environment
+cp .env.example .env
+php artisan key:generate
+
+# Database setup
+php artisan migrate --seed
+
+# Build assets
+npm run build
+
+# Start development server
+php artisan serve
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Access: `http://localhost:8000`
 
-## Contributing
+## 🌐 Production Deployment
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Deploy to Render + TiDB
 
-## Code of Conduct
+**Full Guide:** See [`DEPLOY_STEPS.md`](./DEPLOY_STEPS.md) for quick 15-minute setup
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Quick Summary:**
+1. Create TiDB Serverless cluster (free tier)
+2. Deploy to Render (free tier)
+3. Set environment variables
+4. Done! ✨
 
-## Security Vulnerabilities
+**Detailed Documentation:** [`HOSTING.md`](./HOSTING.md)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Live URL
+Once deployed on Render:
+```
+https://taksir-rumah-bandung.onrender.com
+```
 
-## License
+## 📁 Project Structure
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/    # Request handlers
+│   │   └── Middleware/     # Auth & request middleware
+│   ├── Models/             # Database models
+│   └── Providers/          # Service providers
+├── database/
+│   ├── migrations/         # Database schema
+│   └── seeders/            # Database seeding
+├── resources/
+│   ├── views/              # Blade templates
+│   ├── css/                # Tailwind CSS
+│   └── js/                 # Frontend JS
+├── routes/
+│   └── web.php             # Web routes
+└── public/
+    └── index.php           # Entry point
+```
+
+## 🛠️ Technology Stack
+
+- **Backend**: Laravel 13 (PHP)
+- **Frontend**: Blade Templating + Tailwind CSS
+- **Database**: MySQL 8.0+ / TiDB (MySQL compatible)
+- **Build**: Vite (asset bundling)
+- **Package Manager**: Composer (PHP) + npm (JS)
+
+## 🔒 Environment Variables
+
+Key variables needed:
+
+```env
+APP_NAME=Taksir Rumah Bandung
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://your-domain.com
+
+# Database (TiDB or MySQL)
+DB_CONNECTION=mysql
+DB_HOST=your-database-host
+DB_PORT=3306
+DB_DATABASE=prediksi_rumah_bandung
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+# Session & Cache
+SESSION_DRIVER=database
+CACHE_STORE=database
+```
+
+See `.env.example` for all available variables.
+
+## 📚 Documentation
+
+- **[`DEPLOY_STEPS.md`](./DEPLOY_STEPS.md)** - Quick deployment guide (15 min)
+- **[`HOSTING.md`](./HOSTING.md)** - Full hosting documentation
+- **[Laravel Docs](https://laravel.com/docs)** - Framework documentation
+
+## 🐛 Troubleshooting
+
+### Local Development Issues
+- **Composer issues**: `composer update`
+- **NPM issues**: `npm install --legacy-peer-deps`
+- **Database error**: `php artisan migrate:fresh --seed`
+
+### Production Issues
+See [`HOSTING.md`](./HOSTING.md) troubleshooting section.
+
+## 📊 Database Schema
+
+### Key Tables
+- `users` - User accounts & authentication
+- `predictions` - House price predictions
+- `properties` - Property data
+- `sessions` - User sessions
+
+Run migrations to create:
+```bash
+php artisan migrate
+```
+
+## 🔄 Development Workflow
+
+```bash
+# Pull latest changes
+git pull origin main
+
+# Install dependencies
+composer install && npm install
+
+# Run migrations
+php artisan migrate
+
+# Start dev server
+php artisan serve
+npm run dev  # In another terminal for asset watching
+```
+
+## 📦 Deployment Checklist
+
+- [ ] Code pushed to GitHub main branch
+- [ ] Database credentials secured in environment variables
+- [ ] APP_KEY generated and set
+- [ ] TiDB/MySQL database created
+- [ ] Render service configured
+- [ ] Environment variables set in Render
+- [ ] Application deployed and live
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow Laravel conventions and best practices.
+
+## 📄 License
+
+MIT License - see LICENSE file for details.
+
+## 👨‍💻 Author
+
+**Ranggard** - GitHub: [@Ranggard](https://github.com/Ranggard)
+
+## 🔗 Links
+
+- Repository: https://github.com/Ranggard/Website-Taksir-Rumah-Bandung
+- Live Demo: https://taksir-rumah-bandung.onrender.com (after deployment)
+- Issue Tracker: https://github.com/Ranggard/Website-Taksir-Rumah-Bandung/issues
+
+---
+
+**Made with ❤️ for Bandung Housing Market**
